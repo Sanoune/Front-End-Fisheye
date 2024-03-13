@@ -13,6 +13,8 @@
     </header>
     <main id="main">
       <div class="photograph-header">
+        <div class="photographer-name"></div>
+        <div class="photographer-cyti"></div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
     </main>
@@ -22,13 +24,26 @@
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
+        <div id="pop-up-form">
+          <div class="dialog">
+              <div id="form-title"></div>
+              <form id="personalized-page-form">
+                  <label for="first-name">Prenom</label>
+                  <input type="text" id="first-name-form" name="first-name">
+                  <span id="defaultFirstName"></span>
+                  <label for="last-name">Nom</label>
+                  <input type="text" id="last-name-form" name="last-name">
+                  <span id="defaultLastName"></span>
+                  <label for="email">Email</label>
+                  <input type="email" id="email-form" name="email">
+                  <span id="defaultEmail"></span>
+                  <label for="message">Votre message:</label>
+                  <textarea id="message" name="message"></textarea>
+                  <span></span>
+                  <button class="contact_button" type="submit" value="Send" name="Email" aria-label="Send message">Envoyer</button>
+              </form>
+          </div>
+      </div>
 			</div>
 		</div>
     <script src="/scripts/pages/photographer.js"></script>
