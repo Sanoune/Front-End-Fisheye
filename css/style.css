@@ -1,85 +1,79 @@
 @import url("photographer.css");
 
-
 :root {
-    --colorRedCity: rgba(144, 28, 28, 1);
-    --colorGreyPrice: rgba(117, 117, 117, 1);
-  }
-  
-
-
-body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
+  --colorRedCity: rgba(144, 28, 28, 1);
+  --colorGreyPrice: rgba(117, 117, 117, 1);
 }
 
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 100px;
+  color: #901c1c;
+  margin-right: 100px;
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+  height: 50px;
+  margin-left: 100px;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
 }
 
 .photographer_section article {
-   text-align: center;
-    display: flex;
-    flex-direction: column;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 .photographer_section article a {
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 .photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
-    margin: 0px;
+  color: #d3573c;
+  font-size: 36px;
+  margin: 0px;
 }
 
 .photographer_section article img {
-    margin-bottom: 30px;
-    border-radius: 50%;
-    width: 12.5rem;
-    height: 12.5rem;
-    object-fit: cover;
-
+  margin-bottom: 30px;
+  border-radius: 50%;
+  width: 12.5rem;
+  height: 12.5rem;
+  object-fit: cover;
 }
 
-
-.box-infos-photographer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+.home-infos-photographer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.box-infos-photographer p {
-    margin: 0px;
-    font-size: 15px;
+.home-infos-photographer p {
+  margin: 0px;
+  font-size: 15px;
 }
 
-.city-photographer{
-    color: var(--colorRedCity);
-    font-size: 13px;
+.city-photographer {
+  color: var(--colorRedCity);
+  font-size: 13px;
 }
 
-.price-photographer{
-    color: var(--colorGreyPrice);
-    font-size: 11px;
+.price-photographer {
+  color: var(--colorGreyPrice);
+  font-size: 11px;
 }
