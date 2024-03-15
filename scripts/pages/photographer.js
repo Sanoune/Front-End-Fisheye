@@ -1,30 +1,29 @@
-async function displayData(photographers) {
-  const urlParams = new URLSearchParams(window.location.search);
-  const currentPhotographerId = urlParams.get("id");
-
+// function qui appels d'autres functions pour creer les éléments dynamiquement pour la page photographer via
+async function displayData(photographer) {
   const photographerInfo = document.querySelector(".infos-photographer");
   const photographerImg = document.querySelector(".photographer-img");
 
-  photographers.forEach((photographer) => {
-    if (photographer.id === parseInt(currentPhotographerId)) {
-      const photographerModel = photographerTemplate(photographer);
-      const nameElement = photographerModel.getUsernameDOM(34);
-      const localisationElement = photographerModel.getLocalisation();
-      const photoElement = photographerModel.getPhoto();
-      const taglineElement = photographerModel.getTagline();
+  const photographerModel = photographerTemplate(photographer);
+  const nameElement = photographerModel.getUsernameDOM(34);
+  const localisationElement = photographerModel.getLocalisation();
+  const photoElement = photographerModel.getPhoto();
+  const taglineElement = photographerModel.getTagline();
 
-      photographerInfo.appendChild(nameElement);
-      photographerInfo.appendChild(localisationElement);
-      photographerInfo.appendChild(taglineElement);
-      photographerImg.appendChild(photoElement);
-    }
-  });
+  photographerInfo.appendChild(nameElement);
+  photographerInfo.appendChild(localisationElement);
+  photographerInfo.appendChild(taglineElement);
+  photographerImg.appendChild(photoElement);
 }
 
+//function recupere l'ID de url dans une const et récupere les infos des photographes correspondant à ID
+// Et appel la function displayData.
 async function init() {
-  const photographers = await getPhotographers();
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentPhotographerId = parseInt(urlParams.get("id"));
+  const photographer = await getPhotographerById(currentPhotographerId);
+  displayData(photographer);
 
-  displayData(photographers);
+
 }
 
 init();

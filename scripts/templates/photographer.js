@@ -1,5 +1,5 @@
 //Page index
-//function photographerTemplate return getUserCardDOM et getPhotographerInfoDOM
+//function photographerTemplate return getUserCardDOM et getPhotographerInfoDOM et d'autres functions pour creer elements double
 
 function photographerTemplate(data) {
   const { name, portrait, id, city, country, tagline, price } = data;
@@ -10,6 +10,7 @@ function photographerTemplate(data) {
     const h2 = document.createElement("h2");
     h2.textContent = name;
     h2.style.fontSize = `${fontsize}px`;
+    h2.setAttribute("aria-label", "Nom du photographe : " + name);
     return h2;
   }
 
@@ -38,12 +39,14 @@ function photographerTemplate(data) {
     const cityElement = document.createElement("p");
     cityElement.textContent = `${city}/${country}`;
     cityElement.className = "city-photographer";
+    cityElement.setAttribute("aria-label", "Localisation : " + city + ", " + country);
     return cityElement;
   }
 
   function getTagline() {
     const textElement = document.createElement("p");
     textElement.textContent = tagline;
+    textElement.setAttribute("aria-label", "Tagline : " + tagline);
     return textElement;
   }
 
@@ -68,6 +71,7 @@ function photographerTemplate(data) {
     const priceElement = document.createElement("p");
     priceElement.textContent = `${price}€/jour`;
     priceElement.className = "price-photographer";
+    priceElement.setAttribute("aria-label", "Tarif du photographe : " + price + " euros par jour");
 
     photographerInfoDiv.appendChild(cityElement);
     photographerInfoDiv.appendChild(textElement);
