@@ -13,6 +13,7 @@ async function displayData(photographer) {
   photographerInfo.appendChild(localisationElement);
   photographerInfo.appendChild(taglineElement);
   photographerImg.appendChild(photoElement);
+
 }
 
 //function recupere l'ID de url dans une const et récupere les infos des photographes correspondant à ID
@@ -20,10 +21,16 @@ async function displayData(photographer) {
 async function init() {
   const urlParams = new URLSearchParams(window.location.search);
   const currentPhotographerId = parseInt(urlParams.get("id"));
+  console.log(currentPhotographerId)
   const photographer = await getPhotographerById(currentPhotographerId);
+  console.log(photographer)
   displayData(photographer);
 
+  const dataMedias = await getPhotographers ()
+  const mediaInstance = MediasFactory.createMedia(dataMedias);
 
 }
 
 init();
+
+
