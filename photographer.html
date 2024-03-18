@@ -17,7 +17,7 @@
     <main id="main">
       <section class="photographe-header">
         <div class="infos-photographer"></div>
-        <button class="contact_button" onclick="displayModal()">
+        <button class="button-decoration" onclick="displayModal()">
           Contactez-moi
         </button>
         <div class="photographer-img"></div>
@@ -25,16 +25,46 @@
 
       <section class="dropDown">
         <div>
-          <label for="nom">Trier par</label>
+          <label class="label-trier" for="nom">Trier par</label>
         </div>
-        <div>
-          <button class="trie-btn contact_button" onclick="toggleDropdown()">
-            Popularité <i class="fas fa-search" aria-hidden="true"></i>
+        <div class="">
+          <button
+            class="button-decoration"
+            role="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            id="dropdownButton"
+            onclick="toggleDropdown()"
+          >
+            Populaire
+            <img
+              src="./assets/icons/fleche-vers-le-bas.png"
+              alt="Image du menu"
+              class="fleche"
+            />
           </button>
-          <div class="trie-content" id="myDropdown">
-            <a href="#">Option 1</a>
-            <a href="#">Option 2</a>
-          </div>
+
+          <ul
+            role="listbox"
+            aria-labelledby="dropdownButton"
+            id="dropdownMenu"
+            hidden
+          >
+            <li
+              class="li-middle button-decoration"
+              role="option"
+              aria-selected="false"
+            >
+              Date
+            </li>
+            <li
+              class="li-end button-decoration"
+              role="option"
+              aria-selected="false"
+            >
+              Titre
+            </li>
+          </ul>
         </div>
       </section>
       <section class="mediaCards">
@@ -65,7 +95,7 @@
               <textarea id="message" name="message"></textarea>
               <span></span>
               <button
-                class="contact_button"
+                class="button-decoration"
                 type="submit"
                 value="Send"
                 name="Email"
@@ -83,6 +113,5 @@
     <script src="scripts/templates/MediaCard.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-  
   </body>
 </html>

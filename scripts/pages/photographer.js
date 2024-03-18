@@ -13,7 +13,6 @@ async function displayData(photographer) {
   photographerInfo.appendChild(localisationElement);
   photographerInfo.appendChild(taglineElement);
   photographerImg.appendChild(photoElement);
-
 }
 
 //function recupere l'ID de url dans une const et récupere les infos des photographes correspondant à ID
@@ -21,16 +20,42 @@ async function displayData(photographer) {
 async function init() {
   const urlParams = new URLSearchParams(window.location.search);
   const currentPhotographerId = parseInt(urlParams.get("id"));
-  console.log(currentPhotographerId)
   const photographer = await getPhotographerById(currentPhotographerId);
-  console.log(photographer)
   displayData(photographer);
 
-  const dataMedias = await getPhotographers ()
-  const mediaInstance = MediasFactory.createMedia(dataMedias);
+  const medias = await getMedias();
 
+  const parentMediaContainer = document.querySelector(".media");
+console.log(photographer.name);
+  medias.forEach((element) => {
+    if (element.photographerId === photographer.id) {
+      const mediaInstance = MediasFactory.createMedia(element);
+
+      const NewElementMedia = mediaInstance.createMedia();
+
+      const link = document.createElement("a");
+      link.href = "#";
+      const containerMediasInfo = document.createElement("div");
+      containerMediasInfo.classList.add("container-infos-media");
+      const mediaTitle = document.createElement("p");
+      mediaTitle.textContent = element.title;
+      const likes = document.createElement("p");
+      likes.textContent = element.likes;
+
+      containerMediasInfo.appendChild(likes);
+      containerMediasInfo.appendChild(mediaTitle);
+      link.appendChild(NewElementMedia);
+      parentMediaContainer.appendChild(link);
+      link.appendChild(containerMediasInfo);
+    }
+  });
 }
 
 init();
+
+
+
+
+
 
 

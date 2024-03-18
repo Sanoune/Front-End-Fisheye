@@ -22,7 +22,7 @@
   object-fit: cover;
 }
 
-.contact_button {
+.button-decoration {
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -42,8 +42,9 @@
   align-items: center;
   gap: 30px;
 }
-.dropDown label {
-  font-size: 16px;
+.label-trier {
+  position: sticky;
+  top: 0;
 }
 
 .trie-content {
@@ -79,6 +80,75 @@
   font-size: 64px;
   font-weight: normal;
   text-align: center;
+}
+
+.media {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  width: 100%;
+  margin: 100px auto;
+}
+
+.media img {
+  object-fit: cover;
+  aspect-ratio: 22 / 19;
+  width: auto;
+  height: 280px;
+  margin: auto;
+  padding: auto;
+}
+
+.media video {
+  object-fit: cover;
+  aspect-ratio: 22 / 19;
+  width: auto;
+  height: 280px;
+  margin: auto;
+  padding: auto;
+}
+
+.fleche {
+  height: 20px;
+  width: auto;
+  filter: invert(1);
+}
+
+.contact_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#dropdownButton {
+  border-radius: 5px 5px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#dropdownMenu {
+  padding: 0px;
+  margin: 0px;
+}
+
+#dropdownMenu li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.li-middle p {
+  background-color: #fafafa;
+}
+.li-middle {
+  border-radius: 0px;
+}
+.li-end {
+  border-radius: 0px 0px 5px 5px;
 }
 
 form {

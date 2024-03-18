@@ -1,76 +1,56 @@
-class Photo {
-    constructor(data) {
-      this.title = data.title;
-      this.likes = data.likes;
-      this.date = data.date;
-      this.price = data.price;
-      this.image = data.image;
-    }
-
-    createPhotoElement(data) {
-        const photoContainer = createElement('div', ['photo']);
-        const photoTitle = createElement('h2', ['photo-title']);
-        photoTitle.textContent = data.title;
-        const photoLikes = createElement('span', ['photo-likes']);
-        photoLikes.textContent = `Likes: ${data.likes}`;
-        const photoDate = createElement('span', ['photo-date']);
-        photoDate.textContent = `Date: ${data.date}`;
-        const photoPrice = createElement('span', ['photo-price']);
-        photoPrice.textContent = `Price: ${data.price}`;
-        // const photoElement = createElement('img', ['photo-element'], { src: data.image });
-      
-        photoContainer.appendChild(photoTitle);
-        photoContainer.appendChild(photoLikes);
-        photoContainer.appendChild(photoDate);
-        photoContainer.appendChild(photoPrice);
-        photoContainer.appendChild(photoElement);
-      
-        return photoContainer;
-      }
-  }
-  
-
-  class Video {
-    constructor(data) {
-      this.title = data.title;
-      this.likes = data.likes;
-      this.date = data.date;
-      this.price = data.price;
-      this.video = data.video;
-    }
-    createVideoElement(data) {
-        const videoContainer = createElement('div', ['video']);
-        const videoTitle = createElement('h2', ['video-title']);
-        videoTitle.textContent = data.title;
-        const videoLikes = createElement('span', ['video-likes']);
-        videoLikes.textContent = `Likes: ${data.likes}`;
-        const videoDate = createElement('span', ['video-date']);
-        videoDate.textContent = `Date: ${data.date}`;
-        const videoPrice = createElement('span', ['video-price']);
-        videoPrice.textContent = `Price: ${data.price}`;
-        const videoElement = createElement('video', ['video-element'], { src: data.video, controls: true });
-      
-        videoContainer.appendChild(videoTitle);
-        videoContainer.appendChild(videoLikes);
-        videoContainer.appendChild(videoDate);
-        videoContainer.appendChild(videoPrice);
-        videoContainer.appendChild(videoElement);
-      
-        return videoContainer;
-      }
+class FactoryVideo {
+  constructor(data) {
+    this.id = data.id;
+    this.photographerId = data.photographerId;
+    this.title = data.title;
+    this.likes = data.likes;
+    this.date = data.date;
+    this.price = data.price;
+    this.type = "video";
+    this.url = `assets/medias/Ellie Rose/${data.video}`;
   }
 
-  class MediasFactory {
-    
-    static createMedia(data) {
-        if (data.image) {
-            return new Photo(data);
-        } else if (data.video) {
-            return new Video(data);
-        } else {
-            throw new Error('Type de média non pris en charge');
-        }
-    }
+  createMedia() {
+    const mediaElement = document.createElement("video");
+    mediaElement.setAttribute("controls", "");
+    const sourceElement = document.createElement("source");
+    sourceElement.src = this.url;
+    sourceElement.type = "video/mp4";
+    mediaElement.appendChild(sourceElement);
+    return mediaElement;
+  }
 }
 
+class FactoryPhoto {
+  constructor(data) {
+    this.id = data.id;
+    this.name = data.name;
+    this.photographerId = data.photographerId;
+    this.title = data.title;
+    this.likes = data.likes;
+    this.date = data.date;
+    this.price = data.price;
+    this.type = "image";
+    this.url = `assets/medias/Ellie Rose/${data.image}`;
+  }
 
+  createMedia() {
+    
+    const mediaElement = document.createElement("img");
+    mediaElement.src = this.url;
+    mediaElement.alt = this.title;
+    return mediaElement;
+  }
+}
+
+class MediasFactory {
+  static createMedia(data) {
+    if (data.image) {
+      return new FactoryPhoto(data); // Utiliser la méthode createPhotoElement pour créer l'élément
+    } else if (data.video) {
+      return new FactoryVideo(data); // Utiliser la méthode createVideoElement pour créer l'élément
+    } else {
+      throw new Error("Type de média non pris en charge");
+    }
+  }
+}
