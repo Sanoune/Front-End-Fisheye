@@ -1,9 +1,6 @@
 @import url("style.css");
 
-#contact_modal {
-  display: none;
-}
-
+/* ***************** Cadre photographer ************** */
 .photographe-header {
   background-color: #fafafa;
   height: 300px;
@@ -35,6 +32,62 @@
   cursor: pointer;
 }
 
+/* .trie-content {
+  display: none;
+}
+
+.trie-btn {
+  width: 170px;
+  height: 69px;
+} */
+
+/*************Affichage Media********** */
+
+.mediaCards {
+  margin: 0 100px;
+}
+.container-parent-photos-infosMedias {
+  width: auto;
+  margin: auto;
+}
+.container-media-info {
+  display: flex;
+  justify-content: space-between;
+  color: #901c1c;
+  font-weight: bold;
+}
+
+.container-like-heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.media {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  width: 100%;
+  margin: 100px auto;
+}
+
+.media-image-video {
+  object-fit: cover;
+  aspect-ratio: 22 / 19;
+  width: auto;
+  height: 280px;
+  margin: auto;
+  padding: auto;
+  border-radius: 5px;
+}
+
+.heart-icon {
+  width: 15px;
+  height: 15px;
+}
+
+/* ************Partie filtre******* */
+
 .dropDown {
   display: flex;
   margin: 30px 100px;
@@ -42,18 +95,54 @@
   align-items: center;
   gap: 30px;
 }
-.label-trier {
-  position: sticky;
-  top: 0;
+.fleche {
+  height: 20px;
+  width: auto;
+  filter: invert(1);
 }
 
-.trie-content {
+.contact_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#dropdownButton {
+  border-radius: 5px 5px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#dropdownMenu {
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+}
+
+#dropdownMenu li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.li-middle p {
+  background-color: #fafafa;
+}
+.li-middle {
+  border-radius: 0px;
+}
+.li-end {
+  border-radius: 0px 0px 5px 5px;
+}
+
+/* *************Formulaire*********** */
+
+#contact_modal {
   display: none;
-}
-
-.trie-btn {
-  width: 170px;
-  height: 69px;
 }
 
 .modal {
@@ -80,75 +169,6 @@
   font-size: 64px;
   font-weight: normal;
   text-align: center;
-}
-
-.media {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  text-align: center;
-  width: 100%;
-  margin: 100px auto;
-}
-
-.media img {
-  object-fit: cover;
-  aspect-ratio: 22 / 19;
-  width: auto;
-  height: 280px;
-  margin: auto;
-  padding: auto;
-}
-
-.media video {
-  object-fit: cover;
-  aspect-ratio: 22 / 19;
-  width: auto;
-  height: 280px;
-  margin: auto;
-  padding: auto;
-}
-
-.fleche {
-  height: 20px;
-  width: auto;
-  filter: invert(1);
-}
-
-.contact_button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-#dropdownButton {
-  border-radius: 5px 5px 0px 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#dropdownMenu {
-  padding: 0px;
-  margin: 0px;
-}
-
-#dropdownMenu li {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  display: flex;
-  align-items: center;
-}
-
-.li-middle p {
-  background-color: #fafafa;
-}
-.li-middle {
-  border-radius: 0px;
-}
-.li-end {
-  border-radius: 0px 0px 5px 5px;
 }
 
 form {
@@ -182,4 +202,28 @@ form textarea {
   width: 100%;
   height: 200px;
   margin-bottom: 20px;
+}
+
+/* *************Carousel********** */
+.carousel {
+  display: flex;
+  width: 300px; /* Ajustez la largeur selon vos besoins */
+  height: 200px; /* Ajustez la hauteur selon vos besoins */
+  margin: 0 auto;
+  background-color: #fff; /* Ajoutez une couleur de fond pour la modal */
+  border: 2px solid #ccc; /* Ajoutez une bordure à la modal */
+  border-radius: 8px; /* Ajoutez des coins arrondis à la modal */
+  padding: 10px; /* Ajoutez un peu d'espacement intérieur */
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Ajoutez des coins arrondis aux images */
+}
+
+.carrousel-buttonClose-prev{
+  display: flex;
+  flex-direction: column;
 }

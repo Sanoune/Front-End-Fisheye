@@ -71,7 +71,7 @@
         <div class="media"></div>
       </section>
     </main>
-    <div id="contact_modal">
+    <section id="contact_modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
@@ -107,10 +107,27 @@
           </div>
         </div>
       </div>
+    </section>
+    <section class="carousel">
+      <div class="carrousel-buttonClose-prev">
+      <button class="prev" aria-label="Image précédente">Précédent</button>
     </div>
+      <img
+        src=""
+        alt="titre-image"
+        aria-label="Description de l'image"
+        id="image-carousel"
+      />
+      <div class="carousel-controls" aria-label="Contrôles du carrousel">
+        <span class="carousel-close" aria-label="Fermer la galerie">&times;</span>
+        <button class="next" aria-label="Image suivante">Suivant</button>
+      </div>
+    </section>
+
     <script src="/scripts/utils/api.js"></script>
     <script src="scripts/templates/photographer.js"></script>
-    <script src="scripts/templates/MediaCard.js"></script>
+    <script src="scripts/templates/MediaFactory.js"></script>
+    <script src="scripts/templates/MediaCards.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

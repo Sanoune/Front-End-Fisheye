@@ -7,11 +7,12 @@ class FactoryVideo {
     this.date = data.date;
     this.price = data.price;
     this.type = "video";
-    this.url = `assets/medias/Ellie Rose/${data.video}`;
+    this.url = `${data.pathname}/${data.video}`;
   }
 
   createMedia() {
     const mediaElement = document.createElement("video");
+    mediaElement.classList.add("media-image-video");
     mediaElement.setAttribute("controls", "");
     const sourceElement = document.createElement("source");
     sourceElement.src = this.url;
@@ -31,7 +32,7 @@ class FactoryPhoto {
     this.date = data.date;
     this.price = data.price;
     this.type = "image";
-    this.url = `assets/medias/Ellie Rose/${data.image}`;
+    this.url = `${data.pathname}/${data.image}`;
   }
 
   createMedia() {
@@ -39,6 +40,7 @@ class FactoryPhoto {
     const mediaElement = document.createElement("img");
     mediaElement.src = this.url;
     mediaElement.alt = this.title;
+    mediaElement.classList.add("media-image-video");
     return mediaElement;
   }
 }

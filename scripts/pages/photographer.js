@@ -24,38 +24,17 @@ async function init() {
   displayData(photographer);
 
   const medias = await getMedias();
+  const photographerFirstName = photographer.name.split(" ")[0];
 
   const parentMediaContainer = document.querySelector(".media");
-console.log(photographer.name);
+
   medias.forEach((element) => {
     if (element.photographerId === photographer.id) {
-      const mediaInstance = MediasFactory.createMedia(element);
-
-      const NewElementMedia = mediaInstance.createMedia();
-
-      const link = document.createElement("a");
-      link.href = "#";
-      const containerMediasInfo = document.createElement("div");
-      containerMediasInfo.classList.add("container-infos-media");
-      const mediaTitle = document.createElement("p");
-      mediaTitle.textContent = element.title;
-      const likes = document.createElement("p");
-      likes.textContent = element.likes;
-
-      containerMediasInfo.appendChild(likes);
-      containerMediasInfo.appendChild(mediaTitle);
-      link.appendChild(NewElementMedia);
-      parentMediaContainer.appendChild(link);
-      link.appendChild(containerMediasInfo);
+      element.pathname = `./assets/medias/${photographerFirstName}`;
+      let returnResultParentCardMedia = creatMediaCards(element)
+      parentMediaContainer.appendChild(returnResultParentCardMedia);
     }
   });
 }
 
 init();
-
-
-
-
-
-
-
