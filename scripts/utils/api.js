@@ -40,3 +40,4 @@ async function getPhotographerById(id) {
   }
   return photographer;
 }
+

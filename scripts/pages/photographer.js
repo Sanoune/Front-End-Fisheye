@@ -4,6 +4,7 @@ async function displayData(photographer) {
   const photographerImg = document.querySelector(".photographer-img");
 
   const photographerModel = photographerTemplate(photographer);
+
   const nameElement = photographerModel.getUsernameDOM(34);
   const localisationElement = photographerModel.getLocalisation();
   const photoElement = photographerModel.getPhoto();
@@ -23,17 +24,22 @@ async function init() {
   const photographer = await getPhotographerById(currentPhotographerId);
   displayData(photographer);
 
-  const medias = await getMedias();
+  let medias = await getMedias();
+  medias = medias.filter((media) => media.photographerId === photographer.id);
+
   const photographerFirstName = photographer.name.split(" ")[0];
 
-  const parentMediaContainer = document.querySelector(".media");
+  const carouselModel = carouselTemplate(medias);
 
+  function onMediaClick(id) {
+    carouselModel.changeCarouselMedia(id);
+  }
   medias.forEach((element) => {
-    if (element.photographerId === photographer.id) {
-      element.pathname = `./assets/medias/${photographerFirstName}`;
-      let returnResultParentCardMedia = creatMediaCards(element)
-      parentMediaContainer.appendChild(returnResultParentCardMedia);
-    }
+    element.pathname = `./assets/medias/${photographerFirstName}`;
+    let mediaModel = mediaTemplate(element, onMediaClick);
+    const mediaCard = mediaModel.getMediaCardDOM();
+    const containerMedias = document.querySelector(".media");
+    containerMedias.appendChild(mediaCard);
   });
 }
 

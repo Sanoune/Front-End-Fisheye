@@ -1,4 +1,4 @@
-class FactoryVideo {
+class Video {
   constructor(data) {
     this.id = data.id;
     this.photographerId = data.photographerId;
@@ -10,7 +10,7 @@ class FactoryVideo {
     this.url = `${data.pathname}/${data.video}`;
   }
 
-  createMedia() {
+  getMediaDom() {
     const mediaElement = document.createElement("video");
     mediaElement.classList.add("media-image-video");
     mediaElement.setAttribute("controls", "");
@@ -22,7 +22,7 @@ class FactoryVideo {
   }
 }
 
-class FactoryPhoto {
+class Photo {
   constructor(data) {
     this.id = data.id;
     this.name = data.name;
@@ -35,8 +35,7 @@ class FactoryPhoto {
     this.url = `${data.pathname}/${data.image}`;
   }
 
-  createMedia() {
-    
+  getMediaDom() {
     const mediaElement = document.createElement("img");
     mediaElement.src = this.url;
     mediaElement.alt = this.title;
@@ -45,12 +44,12 @@ class FactoryPhoto {
   }
 }
 
-class MediasFactory {
+class MediaFactory {
   static createMedia(data) {
     if (data.image) {
-      return new FactoryPhoto(data); // Utiliser la méthode createPhotoElement pour créer l'élément
+      return new Photo(data); // Utiliser la méthode createPhotoElement pour créer l'élément
     } else if (data.video) {
-      return new FactoryVideo(data); // Utiliser la méthode createVideoElement pour créer l'élément
+      return new Video(data); // Utiliser la méthode createVideoElement pour créer l'élément
     } else {
       throw new Error("Type de média non pris en charge");
     }

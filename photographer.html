@@ -109,25 +109,43 @@
       </div>
     </section>
     <section class="carousel">
-      <div class="carrousel-buttonClose-prev">
-      <button class="prev" aria-label="Image précédente">Précédent</button>
-    </div>
-      <img
-        src=""
-        alt="titre-image"
-        aria-label="Description de l'image"
-        id="image-carousel"
-      />
-      <div class="carousel-controls" aria-label="Contrôles du carrousel">
-        <span class="carousel-close" aria-label="Fermer la galerie">&times;</span>
-        <button class="next" aria-label="Image suivante">Suivant</button>
+      <div class="modal-carousel">
+        <button class="carousel-close" aria-label="Fermer la galerie">
+          <img
+            class="carousel-close"
+            src="./assets/icons/Vector.png"
+            alt="croix"
+          />
+        </button>
+        <div class="container-button-carousel-prev">
+          <button class="buttonPrevious prev" aria-label="Image précédente">
+            <img
+              class="fleche-carousel"
+              src="./assets/icons/fleche-gauche.png"
+              alt="icone-fléche"
+              aria-label="click image précédente"
+            />
+          </button>
+        </div>
+        <div class="carousel-media"></div>
+        <div class="container-button-carousel-next">
+          <button class="next" aria-label="Image suivante">
+            <img
+              class="fleche-carousel"
+              src="./assets/icons/fleche-droit.png"
+              alt="icone-fléche"
+              aria-label="click image suivante"
+            />
+          </button>
+        </div>
       </div>
     </section>
 
     <script src="/scripts/utils/api.js"></script>
     <script src="scripts/templates/photographer.js"></script>
-    <script src="scripts/templates/MediaFactory.js"></script>
-    <script src="scripts/templates/MediaCards.js"></script>
+    <script src="scripts/factory/MediaFactory.js"></script>
+    <script src="scripts/templates/media.js"></script>
+    <script src="scripts/templates/carrousel.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

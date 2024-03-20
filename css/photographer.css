@@ -43,18 +43,17 @@
 
 /*************Affichage Media********** */
 
-.mediaCards {
-  margin: 0 100px;
+.media-container {
+  margin: 0 auto;
 }
-.container-parent-photos-infosMedias {
-  width: auto;
-  margin: auto;
-}
-.container-media-info {
+
+.infos-media {
   display: flex;
   justify-content: space-between;
   color: #901c1c;
   font-weight: bold;
+  width: auto;
+  margin: auto;
 }
 
 .container-like-heart {
@@ -143,12 +142,19 @@
 
 #contact_modal {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: #d6d6d6c0;
 }
 
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -206,24 +212,58 @@ form textarea {
 
 /* *************Carousel********** */
 .carousel {
-  display: flex;
-  width: 300px; /* Ajustez la largeur selon vos besoins */
-  height: 200px; /* Ajustez la hauteur selon vos besoins */
-  margin: 0 auto;
-  background-color: #fff; /* Ajoutez une couleur de fond pour la modal */
-  border: 2px solid #ccc; /* Ajoutez une bordure à la modal */
-  border-radius: 8px; /* Ajoutez des coins arrondis à la modal */
-  padding: 10px; /* Ajoutez un peu d'espacement intérieur */
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: #d6d6d6c0;
 }
 
+.modal-carousel {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .carousel img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 8px; /* Ajoutez des coins arrondis aux images */
+  border-radius: 5px;
 }
 
-.carrousel-buttonClose-prev{
+.carousel-close {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.modal-carousel button {
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 29.64px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.container-button-carousel-prev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-button-carousel-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fleche-carousel {
+  color: #901c1c;
 }

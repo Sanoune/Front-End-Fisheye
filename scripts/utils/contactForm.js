@@ -1,6 +1,6 @@
 function displayModal() {
   const modal = document.getElementById("contact_modal");
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 
 function closeModal() {
@@ -25,3 +25,5 @@ function toggleDropdown() {
     buttonIcon.src = "./assets/icons/fleche-vers-le-haut.png";
   }
 }
+
+//verification validation form 
