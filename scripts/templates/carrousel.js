@@ -3,13 +3,16 @@ function carouselTemplate(medias) {
 
   function updateCarousel() {
     const mediaElement = getCurrentCarouselMedia();
+    const titleElement = getCurrentCarouselTitle();
     const containerMediasCarousel = document.querySelector(".carousel-media");
     containerMediasCarousel.innerHTML = "";
     containerMediasCarousel.appendChild(mediaElement);
+    containerMediasCarousel.appendChild(titleElement);
   }
 
   function changeCarouselMedia(id) {
     carouselIndex = medias.findIndex((media) => media.id === id);
+
     updateCarousel();
   }
 
@@ -17,12 +20,24 @@ function carouselTemplate(medias) {
     const media = medias[carouselIndex];
     const mediaInstance = MediaFactory.createMedia(media);
     const elementMedia = mediaInstance.getMediaDom();
+
     return elementMedia;
   }
+
+  function getCurrentCarouselTitle() {
+    const media = medias[carouselIndex];
+    const title = document.createElement("p");
+    title.innerText = media.title;
+    title.classList.add("title-media");
+    title.setAttribute("aria-label", "Titre de la photo: " + media.title);
+    return title;
+  }
+
 
   const buttonNext = document.querySelector(".next");
   buttonNext.addEventListener("click", () => {
     carouselIndex++;
+
     if (carouselIndex >= medias.length) {
       carouselIndex = 0;
     }

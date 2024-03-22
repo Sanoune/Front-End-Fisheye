@@ -14,28 +14,56 @@ function mediaTemplate(data, onClick) {
     return link;
   }
 
+  function createHeart() {
+    const iconCoeur = document.createElement("i");
+    iconCoeur.classList.add("fas", "fa-heart", "coeur-full");
+    iconCoeur.setAttribute("aria-label", "Cliquez pour aimer cette photo");
+    iconCoeur.alt = "Heart";
+    return iconCoeur;
+  }
+
   function createHeartAndLike(likes) {
     const containerCoeurLike = document.createElement("div");
     containerCoeurLike.className = "container-like-heart";
 
     const like = document.createElement("p");
     like.textContent = likes;
-    like.setAttribute("aria-label", "Nombre de like sur la photo" + like);
+    like.setAttribute("aria-label", likes + " likes sur la photo");
+    like.classList.add("like-media");
+    const iconCoeur = createHeart();
 
-    const imageCoeur = document.createElement("img");
-    imageCoeur.src = "./assets/icons/heart.png";
-    imageCoeur.alt = "Heart";
-    imageCoeur.classList = "heart-icon";
-    imageCoeur.setAttribute("aria-label", "Cliquez pour aimer cette photo");
+    const totalLikesElement = document.querySelector(".total-like");
+
+    function updateTotalLikes(totalLikesElement) {
+      if (!data.bonjour){
+        let totalLikesCount = parseInt(totalLikesElement.textContent);
+        totalLikesCount++;
+        totalLikesElement.textContent = totalLikesCount;
+      }
+    }
+
+    function upLikeMedia() {
+      if (!data.bonjour) {
+        data.likes++;
+        like.textContent = data.likes;
+        data.bonjour = true;
+      }
+    }
+
+    iconCoeur.addEventListener("click", function (event) {
+      updateTotalLikes(totalLikesElement);
+      upLikeMedia();
+    });
 
     containerCoeurLike.appendChild(like);
-    containerCoeurLike.appendChild(imageCoeur);
+    containerCoeurLike.appendChild(iconCoeur);
     return containerCoeurLike;
   }
 
   function createTitle(title) {
     const mediaTitle = document.createElement("p");
     mediaTitle.textContent = title;
+    mediaTitle.classList.add("title-media");
     mediaTitle.setAttribute("aria-label", "Titre de la photo" + title);
     return mediaTitle;
   }

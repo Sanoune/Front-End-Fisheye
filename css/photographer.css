@@ -56,6 +56,11 @@
   margin: auto;
 }
 
+.title-media {
+  color: #901c1c;
+  font-weight: bold;
+}
+
 .container-like-heart {
   display: flex;
   align-items: center;
@@ -70,7 +75,7 @@
   margin: 100px auto;
 }
 
-.media-image-video {
+.media-container .media-image-video {
   object-fit: cover;
   aspect-ratio: 22 / 19;
   width: auto;
@@ -81,8 +86,9 @@
 }
 
 .heart-icon {
-  width: 15px;
-  height: 15px;
+  align-self: center;
+  width: 20px;
+  height: 20px;
 }
 
 /* ************Partie filtre******* */
@@ -229,7 +235,8 @@ form textarea {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.carousel img {
+.carousel-media .media-image-video {
+  object-fit: contain;
   width: 100%;
   height: auto;
   display: block;
@@ -266,4 +273,26 @@ form textarea {
 
 .fleche-carousel {
   color: #901c1c;
+}
+
+.infos-like-price-container {
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(219, 136, 118, 1);
+  width: 376px;
+  height: 89px;
+  position: fixed;
+  bottom: 0px;
+  right: 10px;
+  z-index: 999;
+}
+
+.like-heart-container {
+  display: flex;
+  gap: 12px;
+  align-items: inherit;
 }

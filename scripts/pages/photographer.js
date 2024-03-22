@@ -26,21 +26,58 @@ async function init() {
 
   let medias = await getMedias();
   medias = medias.filter((media) => media.photographerId === photographer.id);
+  const informationPhotographer = infosLikeAndPrice(medias, photographer);
+  const sectionInformation = document.querySelector(".infos-populartie-price");
+  sectionInformation.appendChild(
+    informationPhotographer.containerInfosLikeAndPrice()
+  );
 
+  const titreTrie = document.querySelector(".li-end");
+
+  titreTrie.addEventListener("click", function (event) {
+    event.preventDefault();
+    medias.sort((a, b) => {
+      if (a.title < b.title) return -1;
+      if (a.title > b.title) return 1;
+      return 0;
+    });
+
+    renderMedias();
+  });
+
+
+  const dateTrie = document.querySelector(".li-middle");
+
+
+  dateTrie.addEventListener("click", function (event) {
+    event.preventDefault();
+    medias.sort((a, b) => new Date(b.date) - new Date(a.date));
+    console.log(medias)
+    renderMedias();
+    console.log(medias.likes)
+  });
+
+  
   const photographerFirstName = photographer.name.split(" ")[0];
-
   const carouselModel = carouselTemplate(medias);
 
   function onMediaClick(id) {
     carouselModel.changeCarouselMedia(id);
   }
-  medias.forEach((element) => {
-    element.pathname = `./assets/medias/${photographerFirstName}`;
-    let mediaModel = mediaTemplate(element, onMediaClick);
-    const mediaCard = mediaModel.getMediaCardDOM();
+
+  function renderMedias() {
     const containerMedias = document.querySelector(".media");
-    containerMedias.appendChild(mediaCard);
-  });
+    containerMedias.innerHTML = "";
+    medias.forEach((element) => {
+      element.pathname = `./assets/medias/${photographerFirstName}`;
+    
+      let mediaModel = mediaTemplate(element, onMediaClick);
+      const mediaCard = mediaModel.getMediaCardDOM();
+      containerMedias.appendChild(mediaCard);
+    });
+  }
+
+  renderMedias();
 }
 
 init();

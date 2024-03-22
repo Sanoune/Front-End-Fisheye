@@ -39,5 +39,6 @@ async function getPhotographerById(id) {
     console.error("Pas de photographe trouvé.");
   }
   return photographer;
+
 }
 
