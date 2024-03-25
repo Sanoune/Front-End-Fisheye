@@ -112,7 +112,7 @@ async function init() {
     const containerMedias = document.querySelector(".media");
     containerMedias.innerHTML = "";
     medias.forEach((element) => {
-      element.pathname = `assets/medias/${photographerFirstName}`;
+      element.pathname = `./assets/medias/${photographerFirstName}`;
       let mediaModel = mediaTemplate(element, onMediaClick);
       const mediaCard = mediaModel.getMediaCardDOM();
       containerMedias.appendChild(mediaCard);
