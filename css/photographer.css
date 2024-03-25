@@ -25,23 +25,18 @@
   color: white;
   padding: 11px;
   width: 170px;
-  height: 70px;
+  height: 60px;
   border: none;
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
 }
 
-/* .trie-content {
-  display: none;
-}
-
-.trie-btn {
-  width: 170px;
-  height: 69px;
-} */
-
 /*************Affichage Media********** */
+
+.mediaCards {
+  margin: auto 30px;
+}
 
 .media-container {
   margin: 0 auto;
@@ -100,6 +95,16 @@
   align-items: center;
   gap: 30px;
 }
+
+.button-trie {
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fafafa;
+}
 .fleche {
   height: 20px;
   width: auto;
@@ -118,6 +123,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0px;
 }
 
 #dropdownMenu {
@@ -134,6 +140,13 @@
   align-items: center;
 }
 
+.span-trie {
+  margin: 0px 12px;
+  padding: 21px 0px;
+  flex: 1;
+  display: flex;
+  gap: 23px;
+}
 .li-middle p {
   background-color: #fafafa;
 }
@@ -142,6 +155,12 @@
 }
 .li-end {
   border-radius: 0px 0px 5px 5px;
+}
+
+.border-bar-trie {
+  border-bottom: solid #fafafa;
+  border-top: solid #fafafa;
+  width: 100%;
 }
 
 /* *************Formulaire*********** */
@@ -157,11 +176,21 @@
   background-color: #d6d6d6c0;
 }
 
+.header-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.container-contact-croix {
+  display: flex;
+  justify-content: space-around;
+  gap: 130px;
+}
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 30%;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 35px;
@@ -173,22 +202,21 @@
   text-decoration: none;
   background: transparent;
 }
-.modal header {
-  justify-content: space-between;
-  width: 100%;
-}
 
 .modal header img {
+  width: 30px;
   cursor: pointer;
 }
 
 .modal header h2 {
-  font-size: 64px;
+  margin: 0px;
+  font-size: 50px;
   font-weight: normal;
   text-align: center;
 }
 
 form {
+  margin-top: 50px;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -210,15 +238,28 @@ form div {
 
 form input {
   width: 100%;
-  height: 68px;
+  height: 45px;
   border: none;
   border-radius: 5px;
 }
 
 form textarea {
   width: 100%;
-  height: 200px;
+  height: 125px;
   margin-bottom: 20px;
+}
+
+.error-message {
+  margin: 0px;
+  font-weight: bold;
+}
+
+#message {
+  margin: 0px;
+}
+
+#personalized-page-form .button-decoration {
+  margin-top: 30px;
 }
 
 /* *************Carousel********** */
@@ -242,12 +283,14 @@ form textarea {
 }
 .carousel-media .media-image-video {
   object-fit: contain;
-  width: 100%;
-  height: auto;
   display: block;
   border-radius: 5px;
 }
 
+.media-image-video {
+  width: auto;
+  height: 700px;
+}
 .carousel-close {
   position: absolute;
   top: 10px;

@@ -16,18 +16,22 @@ function toggleDropdown() {
 async function displayData(photographer) {
   const photographerInfo = document.querySelector(".infos-photographer");
   const photographerImg = document.querySelector(".photographer-img");
-
   const photographerModel = photographerTemplate(photographer);
+  const photographerModalName = document.getElementById(
+    "name-personalized-modal"
+  );
 
   const nameElement = photographerModel.getUsernameDOM(34);
   const localisationElement = photographerModel.getLocalisation();
   const photoElement = photographerModel.getPhoto();
   const taglineElement = photographerModel.getTagline();
+  const nameModal = photographerModel.getUsernameDOM(50);
 
   photographerInfo.appendChild(nameElement);
   photographerInfo.appendChild(localisationElement);
   photographerInfo.appendChild(taglineElement);
   photographerImg.appendChild(photoElement);
+  photographerModalName.appendChild(nameModal);
 }
 
 //function recupere l'ID de url dans une const et récupere les infos des photographes correspondant à ID
@@ -102,6 +106,7 @@ async function init() {
   const photographerFirstName = photographer.name.split(" ")[0];
   const carouselModel = carouselTemplate(medias);
 
+  //appel function dans carousel.js
   function onMediaClick(id) {
     carouselModel.changeCarouselMedia(id);
     carouselModel.openCarousel();

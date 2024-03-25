@@ -39,7 +39,10 @@ function photographerTemplate(data) {
     const cityElement = document.createElement("p");
     cityElement.textContent = `${city}/${country}`;
     cityElement.className = "city-photographer";
-    cityElement.setAttribute("aria-label", "Localisation : " + city + ", " + country);
+    cityElement.setAttribute(
+      "aria-label",
+      "Localisation : " + city + ", " + country
+    );
     return cityElement;
   }
 
@@ -71,7 +74,10 @@ function photographerTemplate(data) {
     const priceElement = document.createElement("p");
     priceElement.textContent = `${price}€/jour`;
     priceElement.className = "price-photographer";
-    priceElement.setAttribute("aria-label", "Tarif du photographe : " + price + " euros par jour");
+    priceElement.setAttribute(
+      "aria-label",
+      "Tarif du photographe : " + price + " euros par jour"
+    );
 
     photographerInfoDiv.appendChild(cityElement);
     photographerInfoDiv.appendChild(textElement);
@@ -79,7 +85,13 @@ function photographerTemplate(data) {
 
     return photographerInfoDiv;
   }
-  return { picture, getUserCardDOM, getPhotographerInfoDOM, getUsernameDOM,getPhoto,getTagline,getLocalisation };
+  return {
+    picture,
+    getUserCardDOM,
+    getPhotographerInfoDOM,
+    getUsernameDOM,
+    getPhoto,
+    getTagline,
+    getLocalisation,
+  };
 }
-
-// page photographer

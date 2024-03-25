@@ -1,8 +1,8 @@
 function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "flex";
+  resetForm();
   document.addEventListener("keydown", onEscapeModal);
-
   // Ajoutez un écouteur d'événements pour la touche "Tab"
   document.addEventListener("keydown", OnTab);
   const focusableElements = "button, input, textarea";
@@ -56,7 +56,6 @@ const form = document.getElementById("personalized-page-form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   validate();
-  resetForm();
 });
 
 // Fonction qui crée un élément "span" pour afficher un message d'erreur spécifique et éviter les doublons
@@ -92,6 +91,10 @@ function resetForm() {
   ];
   spanIds.forEach((spanId) => {
     document.getElementById(spanId).innerHTML = "";
+  });
+  const errorMessages = document.querySelectorAll(".error-message");
+  errorMessages.forEach((errorMessage) => {
+    errorMessage.remove();
   });
 }
 

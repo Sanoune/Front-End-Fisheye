@@ -33,7 +33,7 @@
         <div>
           <label class="label-trier" for="nom">Trier par</label>
         </div>
-        <div class="">
+        <div>
           <button
             class="button-decoration"
             role="button"
@@ -42,12 +42,14 @@
             id="dropdownButton"
             onclick="toggleDropdown()"
           >
-            Populaire
-            <img
-              src="./assets/icons/fleche-vers-le-bas.png"
-              alt="Image du menu"
-              class="fleche"
-            />
+            <span class="span-trie gap-element">
+              <span> Populaire </span>
+              <img
+                src="./assets/icons/fleche-vers-le-bas.png"
+                alt="Image du menu"
+                class="fleche"
+              />
+            </span>
           </button>
 
           <ul
@@ -62,7 +64,7 @@
               aria-selected="false"
               tabindex="0"
             >
-              Date
+              <span class="border-bar-trie span-trie"> Date </span>
             </li>
             <li
               class="li-end button-decoration"
@@ -70,7 +72,7 @@
               aria-selected="false"
               tabindex="0"
             >
-              Titre
+              <span class="span-trie"> Titre </span>
             </li>
           </ul>
         </div>
@@ -88,16 +90,17 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <header>
-          <h2>Contactez-moi</h2>
-          <h2 id="name-photographer"></h2>
-          <button onclick="closeModal()" class="button-close-modal">
-            <img src="assets/icons/close.svg" />
-          </button>
+        <header class="header-modal">
+          <div class="container-contact-croix">
+            <h2>Contactez-moi</h2>
+            <button onclick="closeModal()" class="button-close-modal">
+              <img src="assets/icons/close.svg" />
+            </button>
+          </div>
+          <h2 id="name-personalized-modal"></h2>
         </header>
         <div id="pop-up-form">
           <div class="dialog">
-            <div id="form-title"></div>
             <form id="personalized-page-form" method="post">
               <label for="first-name">Prenom</label>
               <input type="text" id="first-name-form" name="first-name" />
