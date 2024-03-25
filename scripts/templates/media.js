@@ -5,11 +5,9 @@ function mediaTemplate(data, onClick) {
     const link = document.createElement("a");
     link.setAttribute("aria-label", "Afficher le carrousel d'images");
     link.href = "#";
-    const openCarousel = document.querySelector(".carousel");
     link.addEventListener("click", function (event) {
       event.preventDefault();
       onClick(id);
-      openCarousel.style.display = "block";
     });
     return link;
   }
@@ -35,7 +33,7 @@ function mediaTemplate(data, onClick) {
     const totalLikesElement = document.querySelector(".total-like");
 
     function updateTotalLikes(totalLikesElement) {
-      if (!data.bonjour){
+      if (!data.likeTrue) {
         let totalLikesCount = parseInt(totalLikesElement.textContent);
         totalLikesCount++;
         totalLikesElement.textContent = totalLikesCount;
@@ -43,10 +41,10 @@ function mediaTemplate(data, onClick) {
     }
 
     function upLikeMedia() {
-      if (!data.bonjour) {
+      if (!data.likeTrue) {
         data.likes++;
         like.textContent = data.likes;
-        data.bonjour = true;
+        data.likeTrue = true;
       }
     }
 

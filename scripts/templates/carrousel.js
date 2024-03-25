@@ -33,43 +33,69 @@ function carouselTemplate(medias) {
     return title;
   }
 
-
-  const buttonNext = document.querySelector(".next");
-  buttonNext.addEventListener("click", () => {
+  function actionNext() {
     carouselIndex++;
-
     if (carouselIndex >= medias.length) {
       carouselIndex = 0;
     }
-
     updateCarousel();
+  }
+
+  const buttonNext = document.querySelector(".next");
+  buttonNext.addEventListener("click", () => {
+    actionNext();
   });
 
-  const buttonPrev = document.querySelector(".prev");
-  buttonPrev.addEventListener("click", () => {
+  function actionPrev() {
     carouselIndex--;
     if (carouselIndex < 0) {
       carouselIndex = medias.length - 1;
     }
     updateCarousel();
+  }
+  const buttonPrev = document.querySelector(".prev");
+  buttonPrev.addEventListener("click", () => {
+    actionPrev();
   });
 
-  function closeModal() {
-    const closeCarousel = document.querySelector(".carousel");
-    const closeButton = document.querySelector(".carousel-close");
-
-    closeButton.addEventListener("click", function (event) {
-      closeCarousel.style.display = "none";
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        closeCarousel.style.display = "none";
-      }
-    });
+  function navClavierCarousel(event) {
+    event.preventDefault();
+    if (event.key === "ArrowRight") {
+      actionNext();
+    } else if (event.key === "ArrowLeft") {
+      actionPrev();
+    }
   }
 
-  closeModal();
+  function closeCarousel() {
+    const carouselElement = document.querySelector(".carousel");
+    carouselElement.style.display = "none";
+    document.removeEventListener("keydown", navClavierCarousel);
+    document.removeEventListener("keydown", closeClavierCarousel);
+  }
 
-  return { closeModal, updateCarousel, changeCarouselMedia };
+  function closeClavierCarousel(event) {
+    if (event.key === "Escape") {
+      closeCarousel();
+    }
+  }
+
+  function openCarousel() {
+    const openCarousel = document.querySelector(".carousel");
+    openCarousel.style.display = "block";
+    document.addEventListener("keydown", closeClavierCarousel);
+    document.addEventListener("keydown", navClavierCarousel);
+  }
+
+  const closeButton = document.querySelector(".carousel-close");
+  closeButton.addEventListener("click", function (event) {
+    closeCarousel();
+  });
+
+  return {
+    updateCarousel,
+    changeCarouselMedia,
+    openCarousel,
+    navClavierCarousel,
+  };
 }

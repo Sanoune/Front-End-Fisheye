@@ -168,6 +168,11 @@
   margin: auto;
 }
 
+.button-close-modal {
+  border: none;
+  text-decoration: none;
+  background: transparent;
+}
 .modal header {
   justify-content: space-between;
   width: 100%;

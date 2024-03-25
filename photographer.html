@@ -60,6 +60,7 @@
               class="li-middle button-decoration"
               role="option"
               aria-selected="false"
+              tabindex="0"
             >
               Date
             </li>
@@ -67,28 +68,37 @@
               class="li-end button-decoration"
               role="option"
               aria-selected="false"
+              tabindex="0"
             >
               Titre
             </li>
           </ul>
         </div>
       </section>
-      <section class="infos-populartie-price"></section>
+      <section class="infos-popularite-price"></section>
       <section class="mediaCards">
         <div class="media"></div>
       </section>
     </main>
     <section id="contact_modal">
-      <div class="modal">
+      <div
+        class="modal"
+        id="modal-ref"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <header>
           <h2>Contactez-moi</h2>
           <h2 id="name-photographer"></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <button onclick="closeModal()" class="button-close-modal">
+            <img src="assets/icons/close.svg" />
+          </button>
         </header>
         <div id="pop-up-form">
           <div class="dialog">
             <div id="form-title"></div>
-            <form id="personalized-page-form">
+            <form id="personalized-page-form" method="post">
               <label for="first-name">Prenom</label>
               <input type="text" id="first-name-form" name="first-name" />
               <span id="defaultFirstName"></span>
@@ -100,7 +110,7 @@
               <span id="defaultEmail"></span>
               <label for="message">Votre message:</label>
               <textarea id="message" name="message"></textarea>
-              <span></span>
+              <span id="defaultMessage"></span>
               <button
                 class="button-decoration"
                 type="submit"
@@ -125,7 +135,10 @@
           />
         </button>
         <div class="container-button-carousel-prev">
-          <button class="buttonPrevious prev" aria-label="Image précédente">
+          <button
+            class="buttonPrevious button-carousel prev"
+            aria-label="Image précédente"
+          >
             <img
               class="fleche-carousel"
               src="./assets/icons/fleche-gauche.png"
@@ -136,7 +149,7 @@
         </div>
         <div class="carousel-media"></div>
         <div class="container-button-carousel-next">
-          <button class="next" aria-label="Image suivante">
+          <button class="next button-carousel" aria-label="Image suivante">
             <img
               class="fleche-carousel"
               src="./assets/icons/fleche-droit.png"
@@ -150,12 +163,12 @@
     </section>
 
     <script src="/scripts/utils/api.js"></script>
+    <script src="/scripts/templates/likes.js"></script>
     <script src="scripts/templates/photographer.js"></script>
     <script src="scripts/factory/MediaFactory.js"></script>
     <script src="scripts/templates/media.js"></script>
     <script src="scripts/templates/carrousel.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/templates/likes.js"></script>
   </body>
 </html>
