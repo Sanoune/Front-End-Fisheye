@@ -58,7 +58,7 @@ async function init() {
 
   const dateTrie = document.querySelector(".li-middle");
   const titreTrie = document.querySelector(".li-end");
-  
+
   titreTrie.addEventListener("click", function (event) {
     event.preventDefault();
     sortByTitle();
@@ -79,8 +79,6 @@ async function init() {
     });
     renderMedias();
   }
-
-
 
   // trie media par date du plus recent au plus ancien + appel function rendersMedia, met a jours les medias
   function sortByDate() {
@@ -114,7 +112,7 @@ async function init() {
     const containerMedias = document.querySelector(".media");
     containerMedias.innerHTML = "";
     medias.forEach((element) => {
-      element.pathname = `./assets/medias/${photographerFirstName}`;
+      element.pathname = `assets/medias/${photographerFirstName}`;
       let mediaModel = mediaTemplate(element, onMediaClick);
       const mediaCard = mediaModel.getMediaCardDOM();
       containerMedias.appendChild(mediaCard);
