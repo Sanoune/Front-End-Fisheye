@@ -19,39 +19,44 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="logo-fisheye" />
     </header>
     <main id="main">
       <section class="photographe-header">
         <div class="infos-photographer"></div>
-        <button class="button-decoration" onclick="displayModal()">
+        <button
+          class="button-decoration"
+          onclick="displayModal()"
+          aria-label="Ouvrir la fenêtre de contact"
+        >
           Contactez-moi
         </button>
-        <div class="photographer-img"></div>
+        <section class="photographer-img"></section>
       </section>
       <section class="dropDown">
         <div>
           <label class="label-trier" for="nom">Trier par</label>
         </div>
-        <div>
+        <div id="container-dropDown">
           <button
+            aria-label="Menu déroulant trier par titre ou date"
             class="button-decoration"
             role="button"
             aria-haspopup="listbox"
             aria-expanded="false"
             id="dropdownButton"
-            onclick="toggleDropdown()"
           >
             <span class="span-trie gap-element">
-              <span> Populaire </span>
+              <span tabindex="0" class="trie-populaire"> Populaire </span>
               <img
                 src="./assets/icons/fleche-vers-le-bas.png"
-                alt="Image du menu"
+                alt="fleche"
                 class="fleche"
+                tabindex="0"
+                onclick="toggleDropdown()"
               />
             </span>
           </button>
-
           <ul
             role="listbox"
             aria-labelledby="dropdownButton"
@@ -61,6 +66,7 @@
             <li
               class="li-middle button-decoration"
               role="option"
+              aria-label="trie par date"
               aria-selected="false"
               tabindex="0"
             >
@@ -69,6 +75,7 @@
             <li
               class="li-end button-decoration"
               role="option"
+              aria-label="trie par Titre"
               aria-selected="false"
               tabindex="0"
             >
@@ -93,33 +100,56 @@
         <header class="header-modal">
           <div class="container-contact-croix">
             <h2>Contactez-moi</h2>
-            <button onclick="closeModal()" class="button-close-modal">
-              <img src="assets/icons/close.svg" />
+            <button
+              onclick="closeModal()"
+              class="button-close-modal"
+              aria-label="fermer la modal"
+            >
+              <img alt="croix" src="assets/icons/close.svg" />
             </button>
           </div>
-          <h2 id="name-personalized-modal"></h2>
+          <span id="name-personalized-modal"></span>
         </header>
         <div id="pop-up-form">
           <div class="dialog">
-            <form id="personalized-page-form" method="post">
-              <label for="first-name">Prenom</label>
-              <input type="text" id="first-name-form" name="first-name" />
+            <form id="personalized-page-form" method="post" novalidate>
+              <label aria-label="Prénom" for="first-name">Prenom</label>
+              <input
+                aria-label="Entrez votre Prénom"
+                type="text"
+                id="first-name-form"
+                name="first-name"
+              />
               <span id="defaultFirstName"></span>
-              <label for="last-name">Nom</label>
-              <input type="text" id="last-name-form" name="last-name" />
+              <label aria-label="Nom" for="last-name">Nom</label>
+              <input
+                aria-label="Entrez votre Nom"
+                type="text"
+                id="last-name-form"
+                name="last-name"
+              />
               <span id="defaultLastName"></span>
-              <label for="email">Email</label>
-              <input type="email" id="email-form" name="email" />
+              <label aria-label="Email" for="email">Email</label>
+              <input
+                aria-label="Entrez votre Email"
+                type="email"
+                id="email-form"
+                name="email"
+              />
               <span id="defaultEmail"></span>
-              <label for="message">Votre message:</label>
-              <textarea id="message" name="message"></textarea>
+              <label aria-label="Message" for="message">Votre message:</label>
+              <textarea
+                aria-label="Entrez votre Message"
+                id="message"
+                name="message"
+              ></textarea>
               <span id="defaultMessage"></span>
               <button
+                aria-label="Envoyez le formulaire"
                 class="button-decoration"
                 type="submit"
                 value="Send"
                 name="Email"
-                aria-label="Send message"
               >
                 Envoyer
               </button>

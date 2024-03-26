@@ -2,7 +2,7 @@
 
 /* ***************** Cadre photographer ************** */
 .photographe-header {
-  background-color: #fafafa;
+  background-color: var(--colorWhite);
   height: 300px;
   margin: 0 100px;
   display: flex;
@@ -22,12 +22,12 @@
 .button-decoration {
   font-size: 20px;
   font-weight: bold;
-  color: white;
+  color: var(--colorWhite);
   padding: 11px;
   width: 170px;
   height: 60px;
   border: none;
-  background-color: #901c1c;
+  background-color: var(--colorRedCity);
   border-radius: 5px;
   cursor: pointer;
 }
@@ -45,14 +45,14 @@
 .infos-media {
   display: flex;
   justify-content: space-between;
-  color: #901c1c;
+  color: var(--colorRedCity);
   font-weight: bold;
   width: auto;
   margin: auto;
 }
 
 .title-media {
-  color: #901c1c;
+  color: var(--colorRedCity);
   font-weight: bold;
 }
 
@@ -100,10 +100,10 @@
   width: 170px;
   height: 70px;
   border: none;
-  background-color: #901c1c;
+  background-color: var(--colorRedCity);
   border-radius: 5px;
   cursor: pointer;
-  color: #fafafa;
+  color: var(--colorWhite);
 }
 .fleche {
   height: 20px;
@@ -148,7 +148,7 @@
   gap: 23px;
 }
 .li-middle p {
-  background-color: #fafafa;
+  background-color: var(--colorWhite);
 }
 .li-middle {
   border-radius: 0px;
@@ -158,8 +158,8 @@
 }
 
 .border-bar-trie {
-  border-bottom: solid #fafafa;
-  border-top: solid #fafafa;
+  border-bottom: solid var(--colorWhite);
+  border-top: solid var(--colorWhite);
   width: 100%;
 }
 
@@ -173,7 +173,7 @@
   width: 100%;
   height: 100%;
   z-index: 1000;
-  background-color: #d6d6d6c0;
+  background-color: var(--colorGrey);
 }
 
 .header-modal {
@@ -190,7 +190,7 @@
 }
 .modal {
   border-radius: 5px;
-  background-color: #db8876;
+  background-color: var(--colorOrange);
   flex-direction: column;
   justify-content: space-between;
   padding: 35px;
@@ -271,7 +271,7 @@ form textarea {
   width: 100%;
   height: 100%;
   z-index: 1000;
-  background-color: #d6d6d6c0;
+  background-color: var(--colorGrey);
 }
 
 .modal-carousel {
@@ -292,6 +292,7 @@ form textarea {
   height: 700px;
 }
 .carousel-close {
+  padding-bottom: 100px;
   position: absolute;
   top: 10px;
   right: 0px;
@@ -301,10 +302,12 @@ form textarea {
 .modal-carousel button {
   background-color: transparent;
   border: none;
-  width: 48px;
-  height: 29.64px;
+  width: 60px;
+  height: 200px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .container-button-carousel-prev {
@@ -320,7 +323,7 @@ form textarea {
 }
 
 .fleche-carousel {
-  color: #901c1c;
+  color: var(--colorRedCity);
 }
 
 .infos-like-price-container {
@@ -330,7 +333,7 @@ form textarea {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgba(219, 136, 118, 1);
+  background-color: var(--colorOrange);
   width: 376px;
   height: 56px;
   position: fixed;

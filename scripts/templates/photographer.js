@@ -55,7 +55,7 @@ function photographerTemplate(data) {
 
   function getUserCardDOM() {
     const article = document.createElement("article");
-    const usernameDOM = getUsernameDOM(12);
+    const usernameDOM = getUsernameDOM(36);
     const img = getPhoto();
     const links = getLink();
     links.appendChild(img);

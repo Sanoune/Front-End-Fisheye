@@ -3,7 +3,11 @@ function mediaTemplate(data, onClick) {
 
   function link() {
     const link = document.createElement("a");
-    link.setAttribute("aria-label", "Afficher le carrousel d'images");
+
+    link.setAttribute(
+      "aria-label",
+      "Afficher le carrousel d'images, photo actuel" + title
+    );
     link.href = "#";
     link.addEventListener("click", function (event) {
       event.preventDefault();
