@@ -48,7 +48,7 @@ function onEscapeModal(event) {
 }
 
 function closeModal() {
-  const buttonModal = document.getElementById("button-modal")
+  const buttonModal = document.getElementById("button-modal");
   buttonModal.setAttribute("aria-hidden", "true");
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
@@ -110,6 +110,10 @@ function validate() {
   const lastName = document.getElementById("last-name-form").value.trim();
   const email = document.getElementById("email-form").value;
   const messageTextera = document.getElementById("message").value;
+  const errorFirsName = document.querySelector("#defaultFirstName");
+  const errorLastName = document.querySelector("#defaultLastName");
+  const errorMail = document.querySelector("#defaultEmail");
+  const errorMgs = document.querySelector("#defaultMessage");
 
   // Vérification de la validité de tous les champs du formulaire
   let correct = true;
@@ -120,30 +124,59 @@ function validate() {
       "Veuillez entrer un prénom valide et avec plus de 2 caractères.",
       "defaultFirstName"
     );
+    errorFirsName.setAttribute("tabindex", "0");
+    errorFirsName.setAttribute("aria-invalid", "true");
+    errorFirsName.setAttribute(
+      "aria-label",
+      "Veuillez entrer un prénom valide et avec plus de 2 caractères."
+    );
     correct = false;
   } else {
-    document.getElementById("defaultFirstName").innerHTML = "";
+    errorFirsName.innerHTML = "";
+    errorFirsName.removeAttribute("tabindex");
+    errorFirsName.setAttribute("aria-invalid", "false");
   }
   if (!validateIdentity(lastName)) {
     createSpan(
       "Veuillez entrer un nom valide et avec plus de 2 caractères.",
       "defaultLastName"
     );
+    errorLastName.setAttribute("tabindex", "0");
+    errorLastName.setAttribute("aria-invalid", "true");
+    errorLastName.setAttribute(
+      "aria-label",
+      "Veuillez entrer un prénom valide et avec plus de 2 caractères."
+    );
     correct = false;
   } else {
     document.getElementById("defaultLastName").innerHTML = "";
+    errorLastName.removeAttribute("tabindex");
+    errorLastName.setAttribute("aria-invalid", "false");
   }
   if (!validateEmail(email)) {
     createSpan("Veuillez entrer une adresse e-mail valide.", "defaultEmail");
+    errorMail.setAttribute("tabindex", "0");
+    errorMail.setAttribute("aria-invalid", "true");
+    errorMail.setAttribute(
+      "aria-label",
+      "Veuillez entrer une adresse e-mail valide."
+    );
     correct = false;
   } else {
-    document.getElementById("defaultEmail").innerHTML = "";
+    errorMail.innerHTML = "";
+    errorMail.removeAttribute("tabindex");
+    errorMail.setAttribute("aria-invalid", "false");
   }
   if (messageTextera === "") {
     createSpan("Veuillez entrer un message.", "defaultMessage");
+    errorMgs.setAttribute("tabindex", "0");
+    errorMgs.setAttribute("aria-invalid", "true");
+    errorMgs.setAttribute("aria-label", "Veuillez entrer un message.");
     correct = false;
   } else {
-    document.getElementById("defaultMessage").innerHTML = "";
+    errorMgs.innerHTML = "";
+    errorMgs.removeAttribute("tabindex");
+    errorMgs.setAttribute("aria-invalid", "false");
   }
 
   // Affichage de la modal de fin du questionnaire si tous les champs sont valides

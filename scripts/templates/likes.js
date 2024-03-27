@@ -17,7 +17,7 @@ function infosLikeAndPrice(medias, photographer) {
       "coeur-full",
       "heart-icon-infos"
     );
-    iconCoeur.setAttribute("aria-label", "Cliquez pour aimer cette photo");
+    iconCoeur.setAttribute("aria-label", "likes au total");
     iconCoeur.alt = "Heart";
 
     return iconCoeur;
@@ -38,7 +38,6 @@ function infosLikeAndPrice(medias, photographer) {
   function containerInfosLikeAndPrice() {
     const containerParent = document.createElement("div");
     containerParent.className = "infos-like-price-container";
-
     const containerLikeHeart = document.createElement("div");
     containerLikeHeart.className = "like-heart-container";
     const totalLikes = calculateTotalLikes(medias);
@@ -54,6 +53,7 @@ function infosLikeAndPrice(medias, photographer) {
     const dailyPriceElement = createPrice(price);
 
     containerLikeHeart.appendChild(totalLikesElement);
+    containerLikeHeart.setAttribute("tabindex", "0");
     containerLikeHeart.appendChild(heart);
 
     containerParent.appendChild(containerLikeHeart);

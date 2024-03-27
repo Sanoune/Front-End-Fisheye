@@ -19,10 +19,10 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo-fisheye" />
+      <img tabindex="0" src="assets/images/logo.png" class="logo" alt="logo-fisheye" />
     </header>
     <main id="main">
-      <section class="photographe-header">
+      <section class="photographe-header" tabindex="0" >
         <div class="infos-photographer"></div>
         <button
           id="button-modal"
@@ -95,7 +95,6 @@
           </ul>
         </div>
       </section>
-      <section class="infos-popularite-price"></section>
       <section class="mediaCards">
         <div class="media"></div>
       </section>
@@ -126,7 +125,7 @@
             <form id="personalized-page-form" method="post" novalidate>
               <label aria-label="Prenom" for="first-name-form">Prenom</label>
               <input
-                aria-label="first-name"
+                aria-label="Entrez votre prénom"
                 type="text"
                 id="first-name-form"
                 name="first-name"
@@ -134,7 +133,7 @@
               <span id="defaultFirstName"></span>
               <label aria-label="Nom" for="last-name-form">Nom</label>
               <input
-                aria-label="last-name"
+                aria-label="Entrez votre nom"
                 type="text"
                 id="last-name-form"
                 name="last-name"
@@ -150,13 +149,13 @@
               <span id="defaultEmail"></span>
               <label aria-label="Message" for="message">Votre message:</label>
               <textarea
-                aria-label="Message"
+                aria-label="Entrez votre message"
                 id="message"
                 name="message"
               ></textarea>
               <span id="defaultMessage"></span>
               <button
-                aria-label="formulaire"
+                aria-label="Envoyez votre formulaire"
                 class="button-decoration"
                 type="submit"
                 value="Send"
@@ -169,6 +168,7 @@
         </div>
       </div>
     </section>
+    <section class="infos-popularite-price"></section>
     <section class="carousel">
       <div class="modal-carousel">
         <button class="carousel-close" aria-label="Fermer la galerie">

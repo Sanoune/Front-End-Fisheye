@@ -30,7 +30,15 @@ function photographerTemplate(data) {
     });
     links.setAttribute(
       "aria-label",
-      "Liens pour aller sur la page du photographe " + name
+      "Liens pour aller sur la page du photographe " +
+        name +
+        " le photographe vie à " +
+        city +
+        " son expression est " +
+        tagline +
+        " son tarife journée est de " +
+        price +
+        " euros "
     );
     return links;
   }
