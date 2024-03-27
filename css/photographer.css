@@ -88,6 +88,10 @@
 
 /* ************Partie filtre******* */
 
+.dropDownMenu{
+  display: none;
+}
+
 .dropDown {
   display: flex;
   margin: 30px 100px;
@@ -130,6 +134,8 @@
   padding: 0px;
   margin: 0px;
   position: absolute;
+  border-radius: 5px 5px 5px 5px;
+
 }
 
 #dropdownMenu li {
@@ -138,6 +144,7 @@
   padding: 0px;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 .span-trie {
@@ -145,22 +152,25 @@
   padding: 21px 0px;
   flex: 1;
   display: flex;
+  justify-content: space-between;
   gap: 23px;
+}
+
+.li-top{
+  border-radius: 0px;
 }
 .li-middle p {
   background-color: var(--colorWhite);
 }
 .li-middle {
-  border-radius: 0px;
+  border-radius: 0px
 }
 .li-end {
   border-radius: 0px 0px 5px 5px;
 }
 
 .border-bar-trie {
-  border-bottom: solid var(--colorWhite);
   border-top: solid var(--colorWhite);
-  width: 100%;
 }
 
 /* *************Formulaire*********** */

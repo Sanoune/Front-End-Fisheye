@@ -1,4 +1,7 @@
 function displayModal() {
+  const buttonModal = document.getElementById("button-modal");
+  buttonModal.setAttribute("aria-hidden", "false");
+
   const modal = document.getElementById("contact_modal");
   modal.style.display = "flex";
   resetForm();
@@ -45,6 +48,8 @@ function onEscapeModal(event) {
 }
 
 function closeModal() {
+  const buttonModal = document.getElementById("button-modal")
+  buttonModal.setAttribute("aria-hidden", "true");
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
   document.removeEventListener("keydown", onEscapeModal);

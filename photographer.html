@@ -25,6 +25,7 @@
       <section class="photographe-header">
         <div class="infos-photographer"></div>
         <button
+          id="button-modal"
           class="button-decoration"
           onclick="displayModal()"
           aria-label="Ouvrir la fenêtre de contact"
@@ -45,15 +46,16 @@
             aria-haspopup="listbox"
             aria-expanded="false"
             id="dropdownButton"
+            onclick="toggleDropdown()"
           >
             <span class="span-trie gap-element">
-              <span tabindex="0" class="trie-populaire"> Populaire </span>
+              <span class="trie-populaire" id="selected-option">
+                Populaire
+              </span>
               <img
                 src="./assets/icons/fleche-vers-le-bas.png"
                 alt="fleche"
                 class="fleche"
-                tabindex="0"
-                onclick="toggleDropdown()"
               />
             </span>
           </button>
@@ -64,22 +66,31 @@
             hidden
           >
             <li
+              id="trie-populaire"
+              class="li-top button-decoration"
+              role="option"
+              aria-label="trie par popularite"
+              tabindex="0"
+            >
+              <span class="border-bar-trie span-trie"> Populaire</span>
+            </li>
+            <li
+              id="trie-date"
               class="li-middle button-decoration"
               role="option"
               aria-label="trie par date"
-              aria-selected="false"
               tabindex="0"
             >
               <span class="border-bar-trie span-trie"> Date </span>
             </li>
             <li
+              id="trie-titre"
               class="li-end button-decoration"
               role="option"
               aria-label="trie par Titre"
-              aria-selected="false"
               tabindex="0"
             >
-              <span class="span-trie"> Titre </span>
+              <span class="span-trie border-bar-trie"> Titre </span>
             </li>
           </ul>
         </div>
