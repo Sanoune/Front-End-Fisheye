@@ -1,11 +1,25 @@
-class Video {
+//classe en commun dont vont herite tous mes types de medias
+class Media {
   constructor(data) {
+    //commun a tout medias
     this.id = data.id;
     this.photographerId = data.photographerId;
     this.title = data.title;
     this.likes = data.likes;
     this.date = data.date;
     this.price = data.price;
+  }
+// envoi erreur si la methode n'est pas implementé 
+  getMediaDom() {
+    throw new Exception("Not implemented");
+  }
+}
+
+class Video extends Media {
+  constructor(data) {
+    //appeler methode parent
+    super(data);
+    //specificite videos
     this.type = "video";
     this.url = `${data.pathname}/${data.video}`;
   }
@@ -22,15 +36,11 @@ class Video {
   }
 }
 
-class Photo {
+class Photo extends Media {
   constructor(data) {
-    this.id = data.id;
+    super(data);
+    // specificite photos
     this.name = data.name;
-    this.photographerId = data.photographerId;
-    this.title = data.title;
-    this.likes = data.likes;
-    this.date = data.date;
-    this.price = data.price;
     this.type = "image";
     this.url = `${data.pathname}/${data.image}`;
   }
@@ -44,6 +54,7 @@ class Photo {
   }
 }
 
+//fabrique d'object media 
 class MediaFactory {
   static createMedia(data) {
     if (data.image) {
