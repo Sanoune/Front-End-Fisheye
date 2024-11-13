@@ -22,7 +22,8 @@ function carouselTemplate(medias) {
     const media = medias[carouselIndex];
     const mediaInstance = MediaFactory.createMedia(media);
     const elementMedia = mediaInstance.getMediaDom();
-
+    elementMedia.id = "carousel-media"
+    elementMedia.setAttribute("tabindex", 0)
     return elementMedia;
   }
 
@@ -47,6 +48,7 @@ function carouselTemplate(medias) {
   const buttonNext = document.querySelector(".next");
   buttonNext.addEventListener("click", () => {
     actionNext();
+    document.querySelector("#carousel-media").focus();
   });
 
   // Action pour revenir au media précédent dans le carousel au click sur fleche
@@ -56,6 +58,7 @@ function carouselTemplate(medias) {
       carouselIndex = medias.length - 1;
     }
     updateCarousel();
+    document.querySelector("#carousel-media").focus();
   }
   const buttonPrev = document.querySelector(".prev");
   buttonPrev.addEventListener("click", () => {
@@ -64,10 +67,11 @@ function carouselTemplate(medias) {
 
   // Action clavier pour naviguer dans le carousel
   function navClavierCarousel(event) {
-    event.preventDefault();
     if (event.key === "ArrowRight") {
+      event.preventDefault();
       actionNext();
     } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
       actionPrev();
     }
   }
@@ -88,9 +92,11 @@ function carouselTemplate(medias) {
   function openCarousel() {
     const openCarousel = document.querySelector(".carousel");
     openCarousel.style.display = "block";
-    document.addEventListener("keydown", closeClavierCarousel);
+    document.querySelector("#carousel-media").focus();
+    document.addEventListener("keydown", closeClavierCarousel,);
     document.addEventListener("keydown", navClavierCarousel);
   }
+
 
   // Action pour fermer le carousel lors du clic sur le bouton de fermeture
   const closeButton = document.querySelector(".carousel-close");

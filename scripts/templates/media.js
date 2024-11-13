@@ -16,23 +16,25 @@ function mediaTemplate(data, onClick) {
     return link;
   }
 
-  function createHeart() {
+  function createHeart(likes) {
     const iconCoeur = document.createElement("i");
     iconCoeur.classList.add("fas", "fa-heart", "coeur-full");
-    iconCoeur.setAttribute("aria-label", "Cliquez pour aimer cette photo");
+    iconCoeur.setAttribute(
+      "aria-label",
+      "Cliquez pour aimer cette photo, actuelement" + likes + "likes"
+    );
     iconCoeur.alt = "Heart";
+    iconCoeur.setAttribute("tabindex", "0");
     return iconCoeur;
   }
 
   function createHeartAndLike(likes) {
     const containerCoeurLike = document.createElement("div");
     containerCoeurLike.className = "container-like-heart";
-
     const like = document.createElement("p");
     like.textContent = likes;
-    like.setAttribute("aria-label", likes + " likes sur la photo");
     like.classList.add("like-media");
-    const iconCoeur = createHeart();
+    const iconCoeur = createHeart(likes);
 
     const totalLikesElement = document.querySelector(".total-like");
 
@@ -55,6 +57,13 @@ function mediaTemplate(data, onClick) {
     iconCoeur.addEventListener("click", function (event) {
       updateTotalLikes(totalLikesElement);
       upLikeMedia();
+    });
+    iconCoeur.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        updateTotalLikes(totalLikesElement);
+        upLikeMedia();
+      }
     });
 
     containerCoeurLike.appendChild(like);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -20,12 +20,13 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo-fisheye" />
+      <img tabindex="0" src="assets/images/logo.png" class="logo" alt="logo-fisheye" />
     </header>
     <main id="main">
-      <section class="photographe-header">
+      <section class="photographe-header" tabindex="0" >
         <div class="infos-photographer"></div>
         <button
+          id="button-modal"
           class="button-decoration"
           onclick="displayModal()"
           aria-label="Ouvrir la fenêtre de contact"
@@ -46,15 +47,16 @@
             aria-haspopup="listbox"
             aria-expanded="false"
             id="dropdownButton"
+            onclick="toggleDropdown()"
           >
             <span class="span-trie gap-element">
-              <span tabindex="0" class="trie-populaire"> Populaire </span>
+              <span class="trie-populaire" id="selected-option">
+                Populaire
+              </span>
               <img
                 src="./assets/icons/fleche-vers-le-bas.png"
                 alt="fleche"
                 class="fleche"
-                tabindex="0"
-                onclick="toggleDropdown()"
               />
             </span>
           </button>
@@ -65,27 +67,35 @@
             hidden
           >
             <li
+              id="trie-populaire"
+              class="li-top button-decoration"
+              role="option"
+              aria-label="trie par popularite"
+              tabindex="0"
+            >
+              <span class="border-bar-trie span-trie"> Populaire</span>
+            </li>
+            <li
+              id="trie-date"
               class="li-middle button-decoration"
               role="option"
               aria-label="trie par date"
-              aria-selected="false"
               tabindex="0"
             >
               <span class="border-bar-trie span-trie"> Date </span>
             </li>
             <li
+              id="trie-titre"
               class="li-end button-decoration"
               role="option"
               aria-label="trie par Titre"
-              aria-selected="false"
               tabindex="0"
             >
-              <span class="span-trie"> Titre </span>
+              <span class="span-trie border-bar-trie"> Titre </span>
             </li>
           </ul>
         </div>
       </section>
-      <section class="infos-popularite-price"></section>
       <section class="mediaCards">
         <div class="media"></div>
       </section>
@@ -114,23 +124,23 @@
         <div id="pop-up-form">
           <div class="dialog">
             <form id="personalized-page-form" method="post" novalidate>
-              <label aria-label="Prénom" for="first-name">Prenom</label>
+              <label aria-label="Prenom" for="first-name-form">Prenom</label>
               <input
-                aria-label="Entrez votre Prénom"
+                aria-label="Entrez votre prénom"
                 type="text"
                 id="first-name-form"
                 name="first-name"
               />
               <span id="defaultFirstName"></span>
-              <label aria-label="Nom" for="last-name">Nom</label>
+              <label aria-label="Nom" for="last-name-form">Nom</label>
               <input
-                aria-label="Entrez votre Nom"
+                aria-label="Entrez votre nom"
                 type="text"
                 id="last-name-form"
                 name="last-name"
               />
               <span id="defaultLastName"></span>
-              <label aria-label="Email" for="email">Email</label>
+              <label aria-label="Email" for="email-form">Email</label>
               <input
                 aria-label="Entrez votre Email"
                 type="email"
@@ -140,13 +150,13 @@
               <span id="defaultEmail"></span>
               <label aria-label="Message" for="message">Votre message:</label>
               <textarea
-                aria-label="Entrez votre Message"
+                aria-label="Entrez votre message"
                 id="message"
                 name="message"
               ></textarea>
               <span id="defaultMessage"></span>
               <button
-                aria-label="Envoyez le formulaire"
+                aria-label="Envoyez votre formulaire"
                 class="button-decoration"
                 type="submit"
                 value="Send"
@@ -159,6 +169,7 @@
         </div>
       </div>
     </section>
+    <section class="infos-popularite-price"></section>
     <section class="carousel">
       <div class="modal-carousel">
         <button class="carousel-close" aria-label="Fermer la galerie">
