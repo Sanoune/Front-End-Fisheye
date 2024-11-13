@@ -19,7 +19,7 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 90px;
-  margin-top: 20px;
+  margin: 10px 100px;
 }
 
 header h1 {
@@ -33,7 +33,6 @@ h1 {
 
 .logo {
   height: 50px;
-  margin-left: 100px;
 }
 
 .photographer_section {
@@ -42,6 +41,7 @@ h1 {
   gap: 70px;
   margin-top: 100px;
   margin-bottom: 100px;
+  padding: 3rem;
 }
 
 .photographer_section article {

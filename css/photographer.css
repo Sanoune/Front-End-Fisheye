@@ -4,11 +4,11 @@
 .photographe-header {
   background-color: var(--colorWhite);
   height: 300px;
-  margin: 0 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 2rem;
+  margin: 40px 100px;
 }
 
 .photographer-img img {
@@ -35,20 +35,22 @@
 /*************Affichage Media********** */
 
 .mediaCards {
-  margin: auto 30px;
+  margin: 40px 100px;
 }
 
+/* modification */
 .media-container {
-  margin: 0 auto;
+  display: flex;
+
+  flex-direction: column;
 }
 
 .infos-media {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   color: var(--colorRedCity);
   font-weight: bold;
   width: auto;
-  margin: auto;
 }
 
 .title-media {
@@ -63,11 +65,12 @@
   gap: 10px;
 }
 .media {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   margin: 100px auto;
+  gap: 1rem;
 }
 
 .media-container .media-image-video {
@@ -276,15 +279,20 @@ form textarea {
 
 .modal-carousel {
   display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 .carousel-media .media-image-video {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   display: block;
-  border-radius: 5px;
+  margin: 0 auto;
+  border-radius: 10px;
 }
 
 .media-image-video {
@@ -295,7 +303,7 @@ form textarea {
   padding-bottom: 100px;
   position: absolute;
   top: 10px;
-  right: 0px;
+  right: 10px;
   cursor: pointer;
 }
 
