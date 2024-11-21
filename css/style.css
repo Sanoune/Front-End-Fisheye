@@ -19,7 +19,7 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 90px;
-  margin: 10px 100px;
+  padding: 5rem 7rem;
 }
 
 header h1 {
@@ -28,7 +28,6 @@ header h1 {
 
 h1 {
   color: #901c1c;
-  margin-right: 100px;
 }
 
 .logo {
