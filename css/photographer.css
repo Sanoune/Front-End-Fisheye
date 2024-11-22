@@ -91,7 +91,7 @@
 
 /* ************Partie filtre******* */
 
-.dropDownMenu{
+.dropDownMenu {
   display: none;
 }
 
@@ -138,7 +138,6 @@
   margin: 0px;
   position: absolute;
   border-radius: 5px 5px 5px 5px;
-
 }
 
 #dropdownMenu li {
@@ -159,14 +158,14 @@
   gap: 23px;
 }
 
-.li-top{
+.li-top {
   border-radius: 0px;
 }
 .li-middle p {
   background-color: var(--colorWhite);
 }
 .li-middle {
-  border-radius: 0px
+  border-radius: 0px;
 }
 .li-end {
   border-radius: 0px 0px 5px 5px;
@@ -195,6 +194,7 @@
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 20px;
+  padding: 0px;
 }
 .container-contact-croix {
   display: flex;
