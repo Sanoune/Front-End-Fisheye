@@ -47,7 +47,7 @@
 
 .infos-media {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   color: var(--colorRedCity);
   font-weight: bold;
   width: auto;
